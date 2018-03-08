@@ -44,73 +44,77 @@ var calculadora = {
       calculadora .accion = 'numero';
       calculadora .valor = 0;
     }
-    if( event .keyCode == 49 || event .keyCode == 97 ) {
+    else if( event .keyCode == 49 || event .keyCode == 97 ) {
       calculadora .accion = 'numero';
       calculadora .valor = 1;
     }
-    if( event .keyCode == 50 || event .keyCode == 98 ) {
+    else if( event .keyCode == 50 || event .keyCode == 98 ) {
       calculadora .accion = 'numero';
       calculadora .valor = 2;
     }
-    if( event .keyCode == 51 || event .keyCode == 99 ) {
+    else if( event .keyCode == 51 || event .keyCode == 99 ) {
       calculadora .accion = 'numero';
       calculadora .valor = 3;
     }
-    if( event .keyCode == 52 || event .keyCode == 100 ) {
+    else if( event .keyCode == 52 || event .keyCode == 100 ) {
       calculadora .accion = 'numero';
       calculadora .valor = 4;
     }
-    if( event .keyCode == 53 || event .keyCode == 101 ) {
+    else if( event .keyCode == 53 || event .keyCode == 101 ) {
       calculadora .accion = 'numero';
       calculadora .valor = 5;
     }
-    if( event .keyCode == 54 || event .keyCode == 102 ) {
+    else if( event .keyCode == 54 || event .keyCode == 102 ) {
       calculadora .accion = 'numero';
       calculadora .valor = 6;
     }
-    if( event .keyCode == 55 || event .keyCode == 103 ) {
+    else if( event .keyCode == 55 || event .keyCode == 103 ) {
       calculadora .accion = 'numero';
       calculadora .valor = 7;
     }
-    if( event .keyCode == 56 || event .keyCode == 104 ) {
+    else if( event .keyCode == 56 || event .keyCode == 104 ) {
       calculadora .accion = 'numero';
       calculadora .valor = 8;
     }
-    if( event .keyCode == 57 || event .keyCode == 105 ) {
+    else if( event .keyCode == 57 || event .keyCode == 105 ) {
       calculadora .accion = 'numero';
       calculadora .valor = 9;
     }
     // Capturamos el valor de la teclas de SIGNOS de acuerdo al 'keycode' de la misma
-    if( event .keyCode == 171 || event .keyCode == 107 ) {
+    else if( event .keyCode == 171 || event .keyCode == 107 ) {
       calculadora .accion = 'signo';
       calculadora .valor = '+';
     }
-    if( event .keyCode == 173 || event .keyCode == 109 ) {
+    else if( event .keyCode == 173 || event .keyCode == 109 ) {
       calculadora .accion = 'signo';
       calculadora .valor = '-';
     }
-    if( event .keyCode == 106 ) {
+    else if( event .keyCode == 106 ) {
       calculadora .accion = 'signo';
       calculadora .valor = '*';
     }
-    if( event .keyCode == 111 ) {
+    else if( event .keyCode == 111 ) {
       calculadora .accion = 'signo';
       calculadora .valor = '/';
     }
     // Capturamos el valor de la tecla de DECIMAL de acuerdo al 'keycode' de la misma
-    if( event .keyCode == 190 || event .keyCode == 110 ) {
+    else if( event .keyCode == 190 || event .keyCode == 110 ) {
       calculadora .accion = 'decimal';
       calculadora .valor = '.';
     }
     // Capturamos el valor de la tecla de IGUAL de acuerdo al 'keycode' de la misma
-    if( event .keyCode == 13 ) {
+    else if( event .keyCode == 13 ) {
       calculadora .accion = 'igual';
       calculadora .valor = '=';
     }
     // Capturamos el valor de la tecla de ESC(27) BackSpace(8) de acuerdo al 'keycode' de la misma
-    if( event .keyCode == 8 || event .keyCode == 27 ) {
+    else if( event .keyCode == 8 || event .keyCode == 27 ) {
       calculadora .accion = 'borrar';
       calculadora .valor = '0';
+    }
+    else {
+      calculadora .accion = '';
+      calculadora .valor = '';
     }
 
     /* NOTA: Tener en cuenta que la configuración del teclado para este ejercicio
