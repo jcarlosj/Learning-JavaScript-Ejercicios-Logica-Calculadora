@@ -13,6 +13,7 @@ var calculadora = {
   accion : null,
   valor : null,
   pantalla : null,
+  signo : false,
   inicio : function() {
     calculadora .teclas = document .querySelectorAll( '#calculadora #teclado ul li' );    // Obtiene todos los elementos que representan cada botón de la calculadora
     calculadora .pantalla = document .querySelector( '#calculadora #pantalla' );          // Obtiene el elemento que representa la pantalla de la calculadora
@@ -35,6 +36,7 @@ var calculadora = {
     console .log( accion );
 
     if( accion == 'numero' ) {
+      calculadora .signo = false;
       // Valida si la pantalla tiene un 0
       if( calculadora .pantalla .innerHTML == 0 ) {
           calculadora .pantalla .innerHTML = valor;       // Reemplaza el valor en la pantalla de la calculadora
@@ -46,6 +48,10 @@ var calculadora = {
     }
     if( accion == 'signo' ) {
 
+      if( calculadora .signo == false ) {
+        calculadora .pantalla .innerHTML += valor;      // Agrega el valor en la pantalla de la calculadora
+        calculadora .signo = true;
+      }
     }
     if( accion == 'decimal' ) {
 
@@ -54,7 +60,7 @@ var calculadora = {
 
     }
     if( accion == 'borrar' ) {
-
+      calculadora .pantalla .innerHTML = 0;
     }
   }
 }
