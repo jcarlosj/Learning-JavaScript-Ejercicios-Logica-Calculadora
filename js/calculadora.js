@@ -14,6 +14,8 @@ var calculadora = {
   valor : null,
   pantalla : null,
   signo : false,
+  decimal : false,
+  resultado : false,
   inicio : function() {
     calculadora .teclas = document .querySelectorAll( '#calculadora #teclado ul li' );    // Obtiene todos los elementos que representan cada botón de la calculadora
     calculadora .pantalla = document .querySelector( '#calculadora #pantalla' );          // Obtiene el elemento que representa la pantalla de la calculadora
@@ -42,7 +44,16 @@ var calculadora = {
           calculadora .pantalla .innerHTML = valor;       // Reemplaza el valor en la pantalla de la calculadora
       }
       else {
-          calculadora .pantalla .innerHTML += valor;      // Agrega el valor en la pantalla de la calculadora
+          // Valida si ya se obtuvo el resultado al presionar el botón igual, o aún se continua formando una expresión matemática
+          if( calculadora .resultado ) {
+            calculadora .pantalla .innerHTML = valor;       // Reemplaza el valor en la pantalla de la calculadora
+            calculadora .resultado = false;
+          }
+          else {
+            calculadora .pantalla .innerHTML += valor;      // Agrega el valor en la pantalla de la calculadora
+            calculadora .decimal = false;
+          }
+
       }
 
     }
@@ -52,15 +63,30 @@ var calculadora = {
         calculadora .pantalla .innerHTML += valor;      // Agrega el valor en la pantalla de la calculadora
         calculadora .signo = true;
       }
+      calculadora .resultado = false;
+
     }
     if( accion == 'decimal' ) {
+      // Valida que
+      if( calculadora .decimal == false ) {
 
+          calculadora .pantalla .innerHTML += valor;
+          calculadora .decimal = true;
+      }
     }
     if( accion == 'igual' ) {
 
+      calculadora .pantalla .innerHTML = eval( calculadora .pantalla .innerHTML );
+      /* NOTA: 'eval' es una propiedad de la función del objeto global de JavaScript que evalua si la cadena que se le pasa
+                representa una expresión aritmética */
+
+      calculadora .resultado = true;
     }
     if( accion == 'borrar' ) {
       calculadora .pantalla .innerHTML = 0;
+      calculadora .signo = false;
+      calculadora .decimal = false;
+      calculadora .resultado = false;
     }
   }
 }
