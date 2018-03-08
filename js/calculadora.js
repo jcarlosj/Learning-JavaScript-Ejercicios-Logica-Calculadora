@@ -168,7 +168,7 @@ var calculadora = {
     // Valida si se ha presionado la tecla de punto decimal
     if( accion == 'decimal' ) {
       // Valida que la tecla de punto decimal no se haya presionado con anterioridad
-      if( calculadora .decimal == false ) {
+      if( calculadora .decimal == false && calculadora .signo == false ) {
           calculadora .pantalla .innerHTML += valor;
           calculadora .decimal = true;
           calculadora .resultado = false;
