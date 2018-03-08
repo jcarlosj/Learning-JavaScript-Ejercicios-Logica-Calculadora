@@ -138,7 +138,7 @@ var calculadora = {
     if( accion == 'numero' ) {
       calculadora .signo = false;
       // Valida si la pantalla tiene un 0
-      if( calculadora .pantalla .innerHTML == 0 ) {
+      if( calculadora .pantalla .innerHTML == '0' ) {
           calculadora .pantalla .innerHTML = valor;       // Reemplaza el valor en la pantalla de la calculadora
       }
       else {
@@ -185,13 +185,12 @@ var calculadora = {
     }
     // Valida si se ha presionado la tecla de borrar resultado
     if( accion == 'borrar' ) {
-      calculadora .pantalla .innerHTML = 0;
+      calculadora .pantalla .innerHTML = '0';
       calculadora .signo = false;
       calculadora .decimal = false;
       calculadora .resultado = false;
     }
     // TODO: Agregar la operación de cuadrado de un número
-    // TODO: Poder escribir números decimales desde el principio (0.3748 por ejemplo no es posible en el momento)
     // TODO: Habilitar la funcionalidad de la tecla (M) Memoria
     // TODO: Habilitar la funcionalidad de la tecla (%) Porcentaje
   }
