@@ -176,10 +176,17 @@ var calculadora = {
     }
     // Valida si se ha presionado la tecla de igual (para obtener resultado)
     if( accion == 'igual' ) {
+      var expresion = /./g;       // Expresión regular
 
       calculadora .pantalla .innerHTML = eval( calculadora .pantalla .innerHTML );
       /* NOTA: 'eval' es una propiedad de la función del objeto global de JavaScript que evalua si la cadena que se le pasa
                 representa una expresión aritmética */
+
+      // Valida que cuando un resultado es un decimal (posee un punto, por que es de coma flotante),
+      // no permita agregar otro punto usando una expresión regular
+      if( expresion .test( calculadora .pantalla .innerHTML ) ) {
+        calculadora .decimal = true;
+      }
 
       calculadora .resultado = true;
     }
